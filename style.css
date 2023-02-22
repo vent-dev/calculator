@@ -1,0 +1,16 @@
+.body {
+    margin: 0;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calculator {
+    display: flex;
+    background-color: black;
+    width: 30rem;
+    padding-bottom: 50rem;
+}
