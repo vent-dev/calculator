@@ -1,34 +1,21 @@
-function add(x, y){
-    return x + y;
+function add(a, b){
+    return a + b;
 }
 
-function subtract(x, y){
-    return x - y;
+function subtract(a, b){
+    return a - b;
 }
 
-function multiply(x, y){
-    return x * y;
+function multiply(a, b){
+    return a * b;
 }
 
-function divide(x, y){
-    return x / y;
+function divide(a, b){
+    return a / b;
 }
 
-function operate(operator, x, y){
-    switch(operator){
-        case '+':
-            console.log(add(x, y));
-            break;
-        case '-':
-            console.log(subtract(x, y));
-            break;
-        case '*':
-            console.log(multiply(x, y));
-            break;
-        case '/':
-            console.log(divide(x, y));
-            break;
-    }
+function operate(operator, a, b){
+    console.log(operator(a, b));
 }
 
-operate('*', 2, 3);
+operate(add, 1, 2);
