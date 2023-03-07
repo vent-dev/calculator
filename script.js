@@ -1,6 +1,7 @@
 let output = document.querySelector(".output p");
+
 let one = document.querySelector(".one").addEventListener("click", function(num){
-    output.textContent = num.target.textContent;
+    output.textContent += num.target.textContent;
 })
 
 let two = document.querySelector(".two").addEventListener("click", function(num){
@@ -52,8 +53,8 @@ function divide(...numbers){
     return numbers.reduce((accumulator, currentValue) => accumulator / currentValue);
 }
 
-function operate(operator, ...numbers){
-    return (operator(...numbers));
-}
+// when an operation button is clicked, save the operator and save the current number in an array, then use the operator and each item in the array through the operate function when equals is clicked
 
-// output.textContent = operate(multiply, 1, 2, 5, 10);
+function operate(operator, ...output){
+    return (operator(...output));
+}
