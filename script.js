@@ -1,21 +1,23 @@
-function add(a, b){
-    return a + b;
+let output = document.querySelector(".output p");
+
+function add(...numbers){
+    return numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
 }
 
-function subtract(a, b){
-    return a - b;
+function subtract(...numbers){
+    return numbers.reduce((accumulator, currentValue) => accumulator - currentValue);
 }
 
-function multiply(a, b){
-    return a * b;
+function multiply(...numbers){
+    return numbers.reduce((accumulator, currentValue) => accumulator * currentValue);
 }
 
-function divide(a, b){
-    return a / b;
+function divide(...numbers){
+    return numbers.reduce((accumulator, currentValue) => accumulator / currentValue);
 }
 
-function operate(operator, a, b){
-    console.log(operator(a, b));
+function operate(operator, ...numbers){
+    return (operator(...numbers));
 }
 
-operate(add, 1, 2);
+output.textContent = operate(multiply, 1, 2, 5, 10);
