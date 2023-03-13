@@ -1,60 +1,61 @@
 let output = document.querySelector(".output p");
+let numbers = [];
+let operator;
 
-let one = document.querySelector(".one").addEventListener("click", function(num){
-    output.textContent += num.target.textContent;
+document.querySelectorAll(".number").forEach(item => {
+    item.addEventListener("click", function(e){
+        output.textContent += Number(e.target.textContent);
+    })
 })
 
-let two = document.querySelector(".two").addEventListener("click", function(num){
-    output.textContent += num.target.textContent;
+document.querySelectorAll(".operator").forEach(item => {
+    item.addEventListener("click", function(e){
+        operator = e.target.textContent;
+        numbers.push(Number(output.textContent));
+        output.textContent = "";
+    })
 })
 
-let three = document.querySelector(".three").addEventListener("click", function(num){
-    output.textContent += num.target.textContent;
-})
+document.querySelector(".equals").addEventListener("click",  function(){
+    numbers.push(Number(output.textContent));
+    output.textContent = operate();
+});
 
-let four = document.querySelector(".four").addEventListener("click", function(num){
-    output.textContent += num.target.textContent;
-})
+document.querySelector(".clear").addEventListener("click", function(){
+    output.textContent = "";
+    numbers = [];
+});
 
-let five = document.querySelector(".five").addEventListener("click", function(num){
-    output.textContent += num.target.textContent;
-})
-
-let six = document.querySelector(".six").addEventListener("click", function(num){
-    output.textContent += num.target.textContent;
-})
-
-let seven = document.querySelector(".seven").addEventListener("click", function(num){
-    output.textContent += num.target.textContent;
-})
-
-let eight = document.querySelector(".eight").addEventListener("click", function(num){
-    output.textContent += num.target.textContent;
-})
-
-let nine = document.querySelector(".nine").addEventListener("click", function(num){
-    output.textContent += num.target.textContent;
-})
-
-
-function add(...numbers){
+function add(){
     return numbers.reduce((accumulator, currentValue) => accumulator + currentValue);
 }
 
-function subtract(...numbers){
+function subtract(){
     return numbers.reduce((accumulator, currentValue) => accumulator - currentValue);
 }
 
-function multiply(...numbers){
+function multiply(){
     return numbers.reduce((accumulator, currentValue) => accumulator * currentValue);
 }
 
-function divide(...numbers){
+function divide(){
     return numbers.reduce((accumulator, currentValue) => accumulator / currentValue);
 }
 
-// when an operation button is clicked, save the operator and save the current number in an array, then use the operator and each item in the array through the operate function when equals is clicked
+function operate(){
+    if (operator == "+"){
+        return add();
+    }
 
-function operate(operator, ...output){
-    return (operator(...output));
+    if (operator == "-"){
+        return subtract();
+    }
+
+    if (operator == "/"){
+        return divide();
+    }
+
+    if (operator == "*"){
+        return multiply();               
+    }
 }
